@@ -23,15 +23,13 @@ def print_all_info():
         print(f"{item} - {info[0]}, Цена: {info[1]} рублей, Количество: {info[2]} штук")
 
 def buy_item(item, quantity):
-    if item in jewelry_store and quantity > 0:
-        if jewelry_store[item][2] >= quantity:
-            price = jewelry_store[item][1] * quantity
-            jewelry_store[item][2] -= quantity
-            print(f"Вы купили {quantity} штук товара '{item}' за {price} рублей.")
-        else:
-            print(f"Извините, у нас нет столько товара '{item}'.")
+    if jewelry_store[item][2] >= quantity:
+        price = jewelry_store[item][1] * quantity
+        jewelry_store[item][2] -= quantity
+        print(f"Вы купили {quantity} штук товара '{item}' за {price} рублей.")
     else:
-        print("Извините, товар не найден или введено некорректное количество.")
+        print(f"Извините, у нас нет столько товара '{item}'.")
+
 
 while True:
     print("\nМеню:")
@@ -56,8 +54,21 @@ while True:
         item = input("Введите название товара (или 'n' для возврата в меню): ")
         if item == 'n':
             continue
-        quantity = int(input("Введите количество товара: "))
-        buy_item(item, quantity)
+        if item in jewelry_store:
+            while True:
+                St = input("Введите количество товара: ")
+                try:
+                    quantity = int(St)
+                    if quantity > 0:
+                        break
+                    else:
+                        print("Введите положительное натуральное число.")
+                except ValueError:
+                    print("Некорректный ввод. Введите натуральное число.")
+            buy_item(item, quantity)
+        else:
+            print("Такого товара нет!")
+
     elif choice == "6":
         print("Спасибо за покупки! До свидания!")
         break

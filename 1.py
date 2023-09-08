@@ -1,23 +1,21 @@
-import  random
+import random
+while True:
+    St = input("Введите натуральное число: ")
+    try:
+        number = int(St)
+        if number > 0:
+            break
+        else:
+            print("Введите положительное натуральное число.")
+    except ValueError:
+        print("Некорректный ввод. Введите натуральное число.")
 
-#Вычислите сумму цифр введенного натурального числа
-St = input("Введите натуральное число: ")
-sum_of_digits=0
-for digit_str in St:
-    digit=int(digit_str)
-    sum_of_digits+=digit
-print("Сумма цифр введенного числа:",sum_of_digits)
+sum_of_digits = 0
+for digit_str in str(number):
+    digit = int(digit_str)
+    sum_of_digits += digit
 
-
-
-
-
-
-
-
-
-
-
+print("Сумма цифр введенного числа:", sum_of_digits)
 
 
 
@@ -27,23 +25,19 @@ print("Сумма цифр введенного числа:",sum_of_digits)
 
 
 
-# Создаем пустой кортеж, в который будем добавлять случайные числа
-random_numbers = ()
 
-# Генерируем 10 случайных чисел и добавляем их в кортеж
-for _ in range(10):
-    random_number = random.randint(1, 100)
-    random_numbers = random_numbers + (random_number,)
-#random_numbers = tuple(random.randint(1, 100) for _ in range(10))
 
-# Находим максимальный и минимальный элементы в кортеже
-max_number = max(random_numbers)
-min_number = min(random_numbers)
 
-# Выводим результаты
-print("Случайные числа:", random_numbers)
-print("Максимальное число:", max_number)
-print("Минимальное число:", min_number)
+
+
+
+
+
+
+
+
+
+
 
 
 

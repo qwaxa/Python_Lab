@@ -1,5 +1,16 @@
 import random
-list_length=int(input("Введите длину списка "))
+while True:
+    list_length_str = input("Введите длину списка ")
+    try:
+        list_length= int(list_length_str)
+        if list_length > 0:
+
+            break
+        else:
+            print("Введите положительное натуральное число.")
+    except ValueError:
+        print("Некорректный ввод. Введите натуральное число.")
+
 my_list = []
 product=1
 max_element = None  # Инициализируем переменную для максимального элемента
